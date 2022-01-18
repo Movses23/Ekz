@@ -7,7 +7,7 @@ require "db.php"; // подключаем файл для соединения �
 $data = $_POST;
 $id = $_SESSION['logged_user']->id;
 $id_turs = '1';
-// Пользователь нажимает на кнопку "Пополнить" и код начинает выполняться
+
 if(isset($data['do_bay'])) {
 	$errors = array();
     $users = R::load('users', $id);
@@ -39,11 +39,6 @@ if($nowbalance < $priceturs){
 }
 ?>
 
-
-
-
-
-
 <link rel="stylesheet" href="style.css">
 <section class="sav"></section>
 <div class="container">
@@ -61,18 +56,9 @@ if($nowbalance < $priceturs){
     </div>
 </div>
 
-<!-- Если авторизован выведет приветствие -->
-
-
 <form action="egypt.php" method="post">
     <button class="button6" name="do_bay" type="submit" onclick="return confirm('Вы уверены?');">Купить</button>
 </form>
-
-
-
-
-
-<!-- Пользователь может нажать выйти для выхода из системы -->
 
 <a class="link" href="lk.php">Личный кабинет пользователя</a>
 

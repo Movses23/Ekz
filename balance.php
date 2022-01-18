@@ -7,7 +7,6 @@ require "db.php"; // подключаем файл для соединения �
 $data = $_POST;
 $id = $_SESSION['logged_user']->id;
 
-// Пользователь нажимает на кнопку "Пополнить" и код начинает выполняться
 if(isset($data['do_Balance'])) {
     $errors = array();
 
@@ -23,11 +22,9 @@ if(isset($data['do_Balance'])) {
     $balance = (int)$data['Balance'];
     $raschet = $nowbalance + $balance;
 
-    
     }
+  
 
-    
-        
     if(empty($errors)) {
         $user = R::load('users', $id);
         $user->balance = $raschet;
@@ -41,11 +38,6 @@ echo '<div style="color: red; ">' . array_shift($errors). '</div><hr>';
 }
 ?>
 
-
-
-
-
-
 <link rel="stylesheet" href="style.css">
 <section class="sav">
     <div class="container mt-4">
@@ -54,22 +46,14 @@ echo '<div style="color: red; ">' . array_shift($errors). '</div><hr>';
 
                 <h3 class="heading">Пополнение:</h3>
 
-
-                <!-- Если авторизован выведет приветствие -->
-
-
                 <h2 class="heading">Введите сумму пополнения</h2>
+
                 <form action="Balance.php" method="post">
                     <input type="numbers" class="form-control" name="Balance" id="Balance" min="1" max="100000" required> <br>
                     <button class="button3" name="do_Balance" type="submit">Пополнить</button>
                 </form>
 
-
-
-
-
-                <!-- Пользователь может нажать выйти для выхода из системы -->
-
+                <!-- Пользователь может нажать Личный кабинет пользователя для пехода в файл lk.php -->
                 <a class="link" href="lk.php">Личный кабинет пользователя</a>
             </div>
         </div>

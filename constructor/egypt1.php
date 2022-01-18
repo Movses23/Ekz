@@ -2,7 +2,7 @@
 $title="Египет"; // название формы
 require __DIR__ . '/../header.php'; // подключаем шапку проекта
 require "../db.php"; // подключаем файл для соединения с БД
-$data = $_POST;
+$data = $_GET;
 $id = $_SESSION['logged_user']->id;
 
 
@@ -46,31 +46,40 @@ $ex3 = $exname3->name;
 
 $exname4 = R::load('ex', '1');
 $ex4 = $exname4->name;
-
-//$sort = '';
-//$command = '';
-//$command2 = '';
-//$command3 = '';
-//if(isset($_POST['sort'])) {
-//    $sort = $_POST['sort'];
-//    setcookie("sort", $sort);
-//}
-//if(isset($_COOKIE['sort'])){
-//    $sort = $_COOKIE['sort'];
-//};
-//if($sort == 'Каир'){
-//	$command = 'selected';
-//}
-//if($sort == 'Александрия'){
-//	$command2 = 'selected';
-//}
-//if($sort == 'Гиза'){
-//	$command3 = 'selected';
-//}
-
-
-
 ?>
+
+<h1 class="heading">Египет</h1>
+
+<section>    
+    <div>
+         <a class="link" href="../lk.php">Личный кабинет пользователя</a> 
+    </div>     
+</section><br>
+
+<h2>Египет - 15000 руб.</h2><br>
+
+<h3>Выбор города и его стоимость:</h3>
+Каир - 500 руб.<br>
+Александрия - 650 руб.<br>
+Гиза - 700 руб.<br>
+
+<br><h3>Выбор отеля и его стоимость:</h3>
+Обычного класса - 2500 руб.<br>
+Среднего класса - 3500 руб.<br>
+Высокого класса - 4000 руб.<br>
+
+<br><h3>Выбор кол-во экскурсий и его стоимость:</h3>
+Нет - 0 руб.<br>
+Личный гид на один день - 3500 руб.<br>
+Оазис Бахария из Каира - 4000 руб.<br>
+В Луксор на самолёте - 4000 руб.<br>
+
+<br><h3>Выбор кол-во дней и его стоимость:</h3>
+Выбор кол-во дней и его стоимость зависит от Выборки отеля,<br>
+т. е. Сумма выброного отеля умноженного на кол-во дней<br>
+
+
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="style_const.css">
 <section class="sav">
@@ -78,58 +87,52 @@ $ex4 = $exname4->name;
         <div class="row">
             <div class="col">
 
-                <h1 class="heading">Египет</h1>
-
+                
 
 
                 <!-- ВЫБОРКА -->
 
+                <FORM action='egypt1.php' method='GET' >
+<h3> Выберите город: </h3>
+<SELECT name='ListBox' id='ListBox' >
+<OPTION selected><?php echo $city1?></OPTION>
+<OPTION><?php echo $city2?></OPTION>
+<OPTION><?php echo $city3?></OPTION>
+</SELECT><br><br>
 
 
-                <FORM action='egypt1.php' method='post'>
-                    <h3 class="heading"> Выберите город: </h3>
-                    <SELECT name='ListBox' id='ListBox'>
+<h3> Выберите отель: </h3>
+<SELECT name='ListBox1' id='ListBox1'>
+<OPTION selected><?php echo $hotel1?></OPTION>
+<OPTION ><?php echo $hotel2?></OPTION>
+<OPTION ><?php echo $hotel3?></OPTION>
+</SELECT><br><br>
 
 
-                        <OPTION selected><?php echo $city1?></OPTION>
-                        <OPTION><?php echo $city2?></OPTION>
-                        <OPTION><?php echo $city3?></OPTION>
+<h3> Выберите кол-во экскурсий: </h3>
+<SELECT name='ListBox2' id='ListBox2'>
+<OPTION selected><?php echo $ex1?></OPTION>
+<OPTION><?php echo $ex2?></OPTION>
+<OPTION><?php echo $ex3?></OPTION>
+<OPTION><?php echo $ex4?></OPTION>
+</SELECT><br><br>
 
-                    </SELECT><br><br>
-
-
-                    <h3 class="heading"> Выберите отель: </h3>
-                    <SELECT name='ListBox1' id='ListBox1'>
-                        <OPTION selected><?php echo $hotel1?></OPTION>
-                        <OPTION><?php echo $hotel2?></OPTION>
-                        <OPTION><?php echo $hotel3?></OPTION>
-                    </SELECT><br><br>
-
-
-                    <h3 class="heading"> Выберите кол-во экскурсий: </h3>
-                    <SELECT name='ListBox2' id='ListBox2'>
-                        <OPTION selected><?php echo $ex1?></OPTION>
-                        <OPTION><?php echo $ex2?></OPTION>
-                        <OPTION><?php echo $ex3?></OPTION>
-                        <OPTION><?php echo $ex4?></OPTION>
-                    </SELECT><br><br>
-
-                    <?php
+<?php
 $Day5egypt="5";
 $Day7egypt="7";
 $Day14egypt="14";
 $Day21egypt="21";
 $Day30egypt="30";
 ?>
-                    <h3 class="heading"> Выберите кол-во дней: </h3>
-                    <SELECT name='ListBox3' id='ListBo3'>
-                        <OPTION selected><?php echo $Day5egypt?></OPTION>
-                        <OPTION><?php echo $Day7egypt?></OPTION>
-                        <OPTION><?php echo $Day14egypt?></OPTION>
-                        <OPTION><?php echo $Day21egypt?></OPTION>
-                        <OPTION><?php echo $Day30egypt?></OPTION>
-                    </SELECT><br><br>
-                    <?php
+<h3> Выберите кол-во дней: </h3>
+<SELECT name='ListBox3' id='ListBox3'>
+<OPTION selected><?php echo $Day5egypt?></OPTION>
+<OPTION><?php echo $Day7egypt?></OPTION>
+<OPTION><?php echo $Day14egypt?></OPTION>
+<OPTION><?php echo $Day21egypt?></OPTION>
+<OPTION><?php echo $Day30egypt?></OPTION>
+</SELECT><br><br>
+<?php
 $a = $countryname->price;
 $b = 0;
 $c = 0;
@@ -141,111 +144,100 @@ $c1 = 'Нет';
 $d1 = 'Нет';
 $i1 = 'Нет';
 
-    if(($_POST['ListBox']) == "Каир")
+    if(($_GET['ListBox']) == "Каир")
     {
         $b = $cityname1->price;
 		$b1 = 'Каир';
 		
     }
-    if(($_POST['ListBox']) == "Александрия")
+    if(($_GET['ListBox']) == "Александрия")
     {
         $b = $cityname2->price;
 		$b1 = 'Александрия';		
     }
-    if(($_POST['ListBox']) == "Гиза")
+    if(($_GET['ListBox']) == "Гиза")
     {
         $b = $cityname3->price;
 		$b1 = 'Гиза';		
     }
-    if(($_POST['ListBox1']) == "Обычного класса")
+    if(($_GET['ListBox1']) == "Обычного класса")
     {
         $c = $hotelname1->price; 
 		$c1 = 'Обычного класса';
     }
-    if(($_POST['ListBox1']) == "Среднего класса")
+    if(($_GET['ListBox1']) == "Среднего класса")
     {
         $c = $hotelname2->price; 
 		$c1 = 'Среднего класса';
     }
-    if(($_POST['ListBox1']) == "Высокого класса")
+    if(($_GET['ListBox1']) == "Высокого класса")
     {
         $c = $hotelname3->price; 
 		$c1 = 'Высокого класса';
     }
-    if(($_POST['ListBox2']) == "Нет")
+    if(($_GET['ListBox2']) == "Нет")
     {
         $d = $exname1->price;
 		$d1 = 'Нет';		
     }
-    if(($_POST['ListBox2']) == "Личный гид на один день")
+    if(($_GET['ListBox2']) == "Личный гид на один день")
     {
         $d = $exname2->price;
 		$d1 = 'Личный гид на один день';
     }
-    if(($_POST['ListBox2']) == "Оазис Бахария из Каира")
+    if(($_GET['ListBox2']) == "Оазис Бахария из Каира")
     {
         $d = $exname3->price;
 		$d1 = 'Оазис Бахария из Каира';		
     }
-    if(($_POST['ListBox2']) == "В Луксор на самолёте")
+    if(($_GET['ListBox2']) == "В Луксор на самолёте")
     {
         $d = $exname4->price;
 		$d1 = 'В Луксор на самолёте';
     }
-    if(($_POST['ListBox3']) == "5")
+    if(($_GET['ListBox3']) == "5")
     {
         $i = 5;
 		$i1 = '5';		
     }
-    if(($_POST['ListBox3']) == "7")
+    if(($_GET['ListBox3']) == "7")
     {
         $i = 7; 
 		$i1 = '7';	
     }
-    if(($_POST['ListBox3']) == "14")
+    if(($_GET['ListBox3']) == "14")
     {
         $i = 14;
 		$i1 = '14';			
     }
-    if(($_POST['ListBox3']) == "21")
+    if(($_GET['ListBox3']) == "21")
     {
         $i = 21;
 		$i1 = '21';			
     }
-    if(($_POST['ListBox3']) == "30")
+    if(($_GET['ListBox3']) == "30")
     {
         $i = 30;
 		$i1 = '30';			
     }
 $rezylt = (int)$a + (int)$b + (int)$d + (int)$c * (int)$i;
-echo $rezylt;
+
 
 
 ?>
-                    <script>
-                        function confirmq() {
-                            if (confirm("Купить на сумму <?php $a = $countryname->price; $b = 0; $c = 0; $d = 0; $i = 0; $a1 = 'Нет'; $b1 = 'Нет'; $c1 = 'Нет'; $d1 = 'Нет'; $i1 = 'Нет'; if(($_POST['ListBox']) == 'Каир') { $b = $cityname1->price; $b1 = 'Каир'; } if(($_POST['ListBox']) == 'Александрия') { $b = $cityname2->price; $b1 = 'Александрия'; } if(($_POST['ListBox']) == 'Гиза') { $b = $cityname3->price; $b1 = 'Гиза'; } if(($_POST['ListBox1']) == 'Обычного класса') { $c = $hotelname1->price; $c1 = 'Обычного класса'; } if(($_POST['ListBox1']) == 'Среднего класса') { $c = $hotelname2->price; $c1 = 'Среднего класса'; } if(($_POST['ListBox1']) == 'Высокого класса') { $c = $hotelname3->price; $c1 = 'Высокого класса'; } if(($_POST['ListBox2']) == 'Нет') { $d = $exname1->price; $d1 = 'Нет'; } if(($_POST['ListBox2']) == 'Личный гид на один день') { $d = $exname2->price; $d1 = 'Личный гид на один день'; } if(($_POST['ListBox2']) == 'Оазис Бахария из Каира') { $d = $exname3->price; $d1 = 'Оазис Бахария из Каира'; } if(($_POST['ListBox2']) == 'В Луксор на самолёте') { $d = $exname4->price; $d1 = 'В Луксор на самолёте'; } if(($_POST['ListBox3']) == '5') { $i = 5; $i1 = '5'; } if(($_POST['ListBox3']) == '7') { $i = 7; $i1 = '7'; } if(($_POST['ListBox3']) == '14') { $i = 14; $i1 = '14'; } if(($_POST['ListBox3']) == '21') { $i = 21; $i1 = '21'; } if(($_POST['ListBox3']) == '30') { $i = 30; $i1 = '30'; } $rezylt = (int)$a + (int)$b + (int)$d + (int)$c * (int)$i; echo $rezylt; ?> ?")) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        }
+<script>
 
-                    </script>
-                    <button class="button3" type="button" name="raschet" id="raschet" onclick="window.location.href = 'http://site-main/lk.php';">Расчитать</button>
-                    <script>
-                        function confirmSpelll() {
-                            if (confirm("Купить на сумму <?php echo $rezylt ?> ?")) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        }
-
-                    </script>
-                    <button class="button3" type="submit" name="do_bay" id="do_bay" onclick="return confirmSpelll();">Купить</button>
-                </FORM>
-                <?php
+function confirmSpelll() {
+    if (confirm("После нажатия на кнопку ОК, у вас автоматические спишется сумма с баланса и данные о туре появятся в вашем личном кабинете")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+</script>
+<button type="submit" name="do_bay" id="do_bay" onclick="return confirmSpelll();">Купить</button></p>
+</FORM>
+<?php
 
 
 if(isset($data['do_bay']))
@@ -263,35 +255,23 @@ if(isset($data['do_bay']))
         $raschet = $nowbalance - $rezylt;
 		$user = R::load('users', $id);
         $user->balance = $raschet;
-		$user->turs = $b1;
-		$user->city = $c1;
-		$user->hotel = $d1;
-		$user->ex = $i1;
-		$user->country = $title;
+        $user->turs = $title;
+		$user->city = $b1;
+		$user->hotel = $c1;
+		$user->ex = $d1;
+		$user->day = $i1;
         R::store($user);
 
 }
 ?>
-
-
-
-                <!-- Пользователь может нажать выйти для выхода из системы -->
-
-                <a class="link" href="../lk.php">Личный кабинет пользователя</a>
-
-            </div>
-
-        </div>
-    </div>
-</section>
 
 <footer class="end">
     <div class="container">
 
         <div class="footer-menu">
             <ul>
-                <li><a class="footer-menu__size" href="readyturs.php">Туры</a></li>
-                <li><a class="footer-menu__size" href="http://site-main/constructor/constructor.php">Конструктор туров</a></li>
+                <li><a class="footer-menu__size" href="http://ekz/readyturs.php">Туры</a></li>
+                <li><a class="footer-menu__size" href="http://ekz/constructor/constructor.php">Конструктор туров</a></li>
                 <li><a class="footer-menu__size" href="#">Наши контакты: +7(495)800-08-08</a></li>
 
             </ul>

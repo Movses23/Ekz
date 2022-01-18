@@ -9,12 +9,8 @@ require "db.php"; // подключаем файл для соединения �
 <section class="sav">
     <div class="container">
 
-
         <header class="main-header">
             <h1 class="heading">Воплощяем ваши мечты в реальность!</h1>
-
-
-
 
 
             <!-- Если авторизован выведет приветствие -->
@@ -35,7 +31,6 @@ require "db.php"; // подключаем файл для соединения �
             <div class="navigation">
                 <ul>
                     <li class="navigation__item"><a href="readyturs.php">Туры</a></li>
-                    <li class="navigation__item"><a href="http://site-main/constructor/constructor.php">Конструктор туров</a></li>
                     <li class="navigation__item"><a href="#">Телефон: +7(495)800-08-08</a></li>
                 </ul>
             </div>
