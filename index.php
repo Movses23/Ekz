@@ -98,7 +98,7 @@ require "db.php"; // подключаем файл для соединения �
         <div class="footer-menu">
             <ul>
                 <li><a class="footer-menu__size" href="readyturs.php">Туры</a></li>
-                <li><a class="footer-menu__size" href="http://site-main/constructor/constructor.php">Конструктор туров</a></li>
+                <li><a class="footer-menu__size" href="constructor/constructor.php">Конструктор туров</a></li>
                 <li><a class="footer-menu__size" href="#">Наши контакты: +7(495)800-08-08</a></li>
 
             </ul>

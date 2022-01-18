@@ -57,7 +57,7 @@ if(!empty($errors)) {
                 </form>
                 <br>
                 <p class="paragraph">Если вы еще не зарегистрированы, тогда нажмите <a class="link" href="signup.php">здесь</a>.</p>
-                <p class="paragraph">Вернуться на <a class="link" href="lk.php">главную</a>.</p>
+                <p class="paragraph">Вернуться на <a class="link" href="index.php">главную</a>.</p>
             </div>
         </div>
     </div>

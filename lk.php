@@ -3,7 +3,7 @@ $title="Личный кабинет"; // название формы
 require __DIR__ . '/header.php'; // подключаем шапку проекта
 require "db.php"; // подключаем файл для соединения с БД
 
-
+$data = $_POST;
 $id = $_SESSION['logged_user']->id;
 $books = R::load('users', $id); 
 $nowbalance = $books->balance;
@@ -38,6 +38,9 @@ $day = $books->day;
                 <span class="text1">Кол-во экскурсий:</span> <?php echo $ex; ?>
                 <span class="text1">Кол-во дней:</span> <?php echo $day; ?>
 
+                <form class="lk2" action="readyturs.php" method="post">
+                    <button class="button5" name="GotoviTyr" type="submit">Готовые туры</button>
+                </form>
 
                 <form class="lk3" action="constructor\constructor.php" method="post">
                     <button class="button5" name="SozdatiTyr" type="submit">Создать свой тур</button>
