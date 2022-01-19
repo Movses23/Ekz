@@ -49,7 +49,7 @@ echo '<div style="color: red; ">' . array_shift($errors). '</div><hr>';
                 <h2 class="heading">Введите сумму пополнения</h2>
 
                 <form action="Balance.php" method="post">
-                    <input type="numbers" class="form-control" name="Balance" id="Balance" min="1" max="100000" required> <br>
+                    <input type="numbers" class="form-control" name="Balance" id="Balance" min="1" max="1000000" required> <br>
                     <button class="button3" name="do_Balance" type="submit">Пополнить</button>
                 </form>
 
